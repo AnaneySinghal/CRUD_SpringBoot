@@ -1,11 +1,14 @@
 package in.strikes.crudSpringBootDemo.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Student {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -13,6 +16,15 @@ public class Student {
     private int age;
     private int rollNo;
     private String subject;
+    private Boolean deleted;
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
 
     public Long getId() {
         return id;
